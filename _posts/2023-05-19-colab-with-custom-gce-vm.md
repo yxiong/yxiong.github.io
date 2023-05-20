@@ -18,6 +18,9 @@ Following the instructions in https://research.google.com/colaboratory/marketpla
 2. Go to https://colab.research.google.com/ and "connect with a custom GCE VM".
    * Fill in `project`, `zone` and `instance`
    * Note that `instance` has a `-vm` suffix
+3. Verify that we can ssh into the VM:
+   * Use the SSH button from the console
+   * Run `gcloud compute ssh colab-server-gpu-vm` in local machine
 
 ## Notes
 
