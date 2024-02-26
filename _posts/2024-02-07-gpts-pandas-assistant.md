@@ -19,7 +19,7 @@ For example, I made the following requests:
 1. "Make a coding assistant who specialize pandas, the python data analysis library"
 2. "Give it a name: "pandas assistant"." (I didn't like the original name ChatGPT came up with.)
 3. Accept the profile photo ChatGPT created.
-   ![logo](/github-pages/assets/images/20240207-pandas-assistant-logo.png)
+   ![logo](/assets/images/20240207-pandas-assistant-logo.png)
 4. "It is a coding assistant. When user ask something like "How do I rename a column?" The assistant understands that they wants to rename a column in pandas dataframe, and generate some code example for the user"
 5. "Renaming columns is just one example, there are many other operations in pandas that we want the assistant to help with. Such as apply a transformation to a column, join two data frames, count number of unique values in a series, etc."
 6. "I want it to be able to generate code examples, but not too verbose"

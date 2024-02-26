@@ -12,7 +12,7 @@ answer](https://stackoverflow.com/a/64005794/4195568):
    https://console.cloud.google.com/marketplace/product/google/secretmanager.googleapis.com
 2. Create a secret in "Secret Manager": https://console.cloud.google.com/security/secret-manager
 3. Copy the resource name from the console
-   ![copy-resource-name](/github-pages/assets/images/20230601-copy-resource-name.png)
+   ![copy-resource-name](/assets/images/20230601-copy-resource-name.png)
 4. Access the resource key using the python script below
    ```python
    !pip install google-cloud-secret-manager
