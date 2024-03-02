@@ -44,6 +44,9 @@ each situation, and then work backwards.
 
 #### The last round: the "boundary condition"
 
+When all $n$ rounds have been played and we observed the outcome, the "expected" reward is simply:
+
+$$E_n(x_1, y_1; x_2, y_2) = x_1 + x_2$$
 
 ## References
 
