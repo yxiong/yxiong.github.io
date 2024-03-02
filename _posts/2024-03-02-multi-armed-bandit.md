@@ -33,8 +33,10 @@ We first try to solve the problem in a brute force approach to build some intuit
   * We have played $k-1$ rounds before: $$x_1 + y_1 + x_2 + y_2 = k-1$$
   * We have accumulated a reward of $x_1+x_2$
   * Given the previous information $x_1, x_2, y_1, y_2$, we will make a decision on which arm to pull at this round,
-    denoted as $A_k(x_1, x_2; y_1, y_2)$.
-  * 
+    denoted as $A_k(x_1, x_2; y_1, y_2)\in\{1,2\}$.
+  * After making that decision and observe the outcome (updating $x_1, x_2, y_1, y_2$), we have an expected reward 
+    _at the end of the game_ given the information when finishing $k$-th round, denoted as 
+    $E_k(x_1, x_2; y_1, y_2)\in\mathbb{R}^+$
 
 ### Algorithm
 
