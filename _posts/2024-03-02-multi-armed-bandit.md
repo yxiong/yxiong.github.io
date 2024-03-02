@@ -42,11 +42,21 @@ We first try to solve the problem in a brute force approach to build some intuit
 The key insight in our algorithm is we will start from the last round of the game to compute the expected reward for
 each situation, and then work backwards.
 
-#### The last round: the "boundary condition"
+#### Last round: the "boundary condition"
 
 When all $n$ rounds have been played and we observed the outcome, the "expected" reward is simply:
 
 $$E_n(x_1, y_1; x_2, y_2) = x_1 + x_2$$
+
+#### $k$-th round: the iteration
+
+At $k$-th round, when we observed $x_1, x_2, y_1, y_2$, and assume we know $E_k$ (since we work backwards), we need to
+calculate the expected reward when we pull each arm.
+
+If we pull the first arm, there is a $\frac{x_1}{x_1+y_1}$ chance it pays off, and a $\frac{y_1}{x_1+x_2}$ chance that
+it doesn't. So the expected reward is
+$$S_k^{(1)}=\frac{x_1}{x_1+y_1}(1+E_k(x_1+1,y1;x_2,y_2))+\frac{y_1}{x_1+x_2}E_k(x_1,y_1+1;x_2,y_2)
+
 
 ## References
 
