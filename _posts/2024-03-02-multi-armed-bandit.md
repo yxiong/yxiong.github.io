@@ -21,7 +21,16 @@ We first try to solve the problem in a brute force approach to build some intuit
 ### Assumptions
 
 * The number of rounds $n$ is fixed and known ahead of time.
+* When pulling each arm, there are two possible outcomes: we get a unit reward (it "pays off") or we get nothing (it "
+  doesn't pay off"). All arms follow Bernoulli distributions: there is a preset but unknown probably $p_i$ for $i$-th
+  arm to pay off.
 * There are only $m=2$ arms to choose from.
+
+### Notations
+
+Let $x_i$ denote the number of times $i$-th arm paid-off
+
+At $k$-th round (where $1 \leq k \leq n$), we have played $k-1$ rounds before.
 
 ### Algorithm
 
