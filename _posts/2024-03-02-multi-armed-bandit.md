@@ -28,9 +28,8 @@ We first try to solve the problem in a brute force approach to build some intuit
 
 ### Notations
 
-Let $x_i$ denote the number of times $i$-th arm paid-off
-
-At $k$-th round (where $1 \leq k \leq n$), we have played $k-1$ rounds before.
+* Let $x_i$ denote the number of times $i$-th arm paid off, and $y_i$ the number of times $i$-th arm did not pay off. 
+* At $k$-th round (where $1 \leq k \leq n$), we have played $k-1$ rounds before: $$x_1 + y_1 + x_2 + y_2 = k-1$$
 
 ### Algorithm
 
