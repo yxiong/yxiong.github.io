@@ -42,7 +42,7 @@ We first try to solve the problem in a brute force approach to build some intuit
 The key insight in our algorithm is we will start from the last round of the game to compute the expected reward for
 each situation, and then work backwards.
 
-#### The last round
+#### The last round: the "boundary condition"
 
 
 ## References
