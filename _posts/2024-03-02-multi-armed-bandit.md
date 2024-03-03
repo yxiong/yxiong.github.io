@@ -98,6 +98,10 @@ In this setup, we are playing a one arm bandit (risky arm) against a fixed payof
   In particular, after observing $x$ wins and $y$ losses, the expected win rate becomes $\frac{x+1}{x+y+2}$.
 * When pulling the safe arm, we get a constant reward of $\lambda$.
 
+In addition, there is a geometric discount in the rewards of $\beta$ at each round. In other words, the reward we get
+at the second round needs to multiply by a discount factor $\beta<1$, and that we get at the third round by $\beta^2$,
+etc., regardless of which arm we pull. The $\beta$ value is fixed and known ahead of time, say 0.9 or 0.95.
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
