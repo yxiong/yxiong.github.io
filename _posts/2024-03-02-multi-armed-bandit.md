@@ -77,7 +77,7 @@ For simplicity, we just assume the probability of each case is 50%.
   it is just $O(n^3)$ since $x_1+x_2+y_1+y_2=n$, but we are interested in a upper bound here.)
 * At $k$-th step, similarly, the complexity is $O(k^4)$ since we need to fill in that many cells.
 
-So the overall complexity is 
+So the overall complexity is $O((n!)^4)$.
 
 ## References
 
