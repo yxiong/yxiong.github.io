@@ -89,6 +89,15 @@ complexity is $O((n!)^{2m}\cdot m^n)$.
 
 ## Gittins Index -- Infinite Number of Rounds with Discounted Rewards
 
+### One Arm Bandit
+
+In this setup, we are playing a one arm bandit (risky arm) against a fixed payoff (safe arm):
+
+* When pulling the risky arm, there is a $p$ probability we get a unit reward, and $1-p$ probability we get nothing.
+  We model $p$ as a random variable with uniform prior, and its posterior is a Beta distribution.
+  In particular, after observing $x$ wins and $y$ losses, the expected win rate becomes $\frac{x+1}{x+y+1}$.
+* When pulling the safe arm, we get a constant reward of $\lambda$.
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
