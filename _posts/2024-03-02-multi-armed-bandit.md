@@ -24,7 +24,7 @@ We first try to solve the problem in a brute force approach to build some intuit
 * When pulling each arm, there are two possible outcomes: we get a unit reward (it "pays off") or we get nothing (it
   "doesn't pay off"). All arms follow Bernoulli distributions: there is a preset but unknown probably $p_i$ for $i$-th
   arm to pay off.
-* There are only $m=2$ arms to choose from.
+* For simplicity, we will start with $m=2$ arms, but most of the notes in this section applies to general $m$.
 
 ### Notations
 
@@ -58,7 +58,7 @@ it doesn't. So the expected reward is
 
 $$S_k^{(1)}=\frac{x_1}{x_1+y_1}(1+E_k(x_1+1,y1;x_2,y_2))+\frac{y_1}{x_1+y_1}E_k(x_1,y_1+1;x_2,y_2)$$
 
-Similarly, we can calculate $$S_k^{(2)}$$ as
+Similarly, we can calculate $S_k^{(2)}$ as
 
 $$S_k^{(2)}=\frac{x_2}{x_2+y_2}(1+E_k(x_1,y1;x_2+1,y_2))+\frac{y_2}{x_2+y_2}E_k(x_1,y_1;x_2,y_2+1)$$
 
@@ -70,6 +70,14 @@ $$E_{k-1}=\max(S_k^{(1)},S_k^{(2)})$$
 
 When we the arm is never pulled, $x_i=y_i=0$, the probability above is undefined, and we need some other prior.
 For simplicity, we just assume the probability of each case is 50%.
+
+### Complexity
+
+* At last step, we need $O(n^4)$ to construction $E_n(x_1, y_1; x_2, y_2)$ with $1 \leq x_1,x_2,y_1,y_2 \leq n$. (Maybe
+  it is just $O(n^3)$ since $x_1+x_2+y_1+y_2=n$, but we are interested in a upper bound here.)
+* At $k$-th step, similarly, the complexity is $O(k^4)$ since we need to fill in that many cells.
+
+So the overall complexity is 
 
 ## References
 
