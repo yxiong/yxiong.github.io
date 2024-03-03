@@ -211,7 +211,7 @@ Starting from a lower/upper bound interval $[l,u]$ (e.g. $[0,1]$), we iterativel
 and tighten the interval, until it is small enough (for practical matter). Here is the code
 
 ```python
-def gittins_index(n, x, beta=0.9, N=30, epsilon=1e-4):
+def gittins_index(n, x, beta=0.9, N=100, epsilon=1e-6):
   l, u = 0, 1
   while u - l > epsilon:
     lambda_ = (l+u) / 2
@@ -221,8 +221,8 @@ def gittins_index(n, x, beta=0.9, N=30, epsilon=1e-4):
   return lambda_
 
 ## TESTING ##
-gittins_index(0, 0) # --> 0.70294189453125
-gittins_index(2, 1) # --> 0.63458251953125
+gittins_index(0, 0) # --> 0.7028894424438477
+gittins_index(2, 1) # --> 0.6346330642700195
 ```
 
 ## References
