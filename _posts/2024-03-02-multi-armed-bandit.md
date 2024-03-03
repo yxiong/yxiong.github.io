@@ -121,6 +121,17 @@ state, or round 0. Based on the information $n, x, \lambda$, our choices for thi
 Again, the larger the $\lambda$ is, the more likely we will go for option 2. The definition of Gittins Index (roughly)
 is the smallest $\lambda$ such that one is indifferent of these two options.
 
+To make this more rigorous, define a value function $V(n, x, \lambda)$ as the expected optimal _total_ payoff of the
+game. In other words, if we play the game indefinitely following the optimal strategy, $V(n, x, \lambda)$ is the
+expected total payoff. Now, let's look at the two choices:
+
+1. If we keep playing the risky arm 
+   * there is a $\frac{x+1}{n+2}$ chance we get a unit payoff plus a $\beta\cdot V(x+1, n+1, \lambda)$ future payoff;
+   * and a $1-\frac{x+1}{n+2}$ chance of not winning this round, leaving us only a $\beta\cdot V(x, n+1, \lambda)$
+     future payoff;
+2. If we play the safe arm, we will get $\lambda + \beta\lambda + \beta^2\lambda + \cdots = \frac{\lambda}{1-\beta}$
+   total payoff.
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
