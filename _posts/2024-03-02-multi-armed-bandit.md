@@ -118,7 +118,8 @@ state, or round 0. Based on the information $n, x, \lambda$, our choices for thi
 1. Keep playing the risky arm for at least one round
 2. Switch to the safe arm and never look back
 
-Again, the larger the $\lambda$ is, the more likely we will go for option 2.
+Again, the larger the $\lambda$ is, the more likely we will go for option 2. The definition of Gittins Index (roughly)
+is the smallest $\lambda$ such that one is indifferent of these two options.
 
 ## References
 
