@@ -126,15 +126,22 @@ game. In other words, if we play the game indefinitely following the optimal str
 expected total payoff. Now, let's look at the two choices:
 
 1. If we keep playing the risky arm 
-   * there is a $\frac{x+1}{n+2}$ chance we get a unit payoff plus a $\beta\cdot V(x+1, n+1, \lambda)$ future payoff;
-   * and a $1-\frac{x+1}{n+2}$ chance of not winning this round, leaving us only a $\beta\cdot V(x, n+1, \lambda)$
+   * there is a $\frac{x+1}{n+2}$ chance we get a unit payoff plus a $\beta\cdot V(n+1, x+1, \lambda)$ future payoff;
+   * and a $1-\frac{x+1}{n+2}$ chance of not winning this round, leaving us only a $\beta\cdot V(n+1, x, \lambda)$
      future payoff;
 2. If we play the safe arm, we will get $\lambda + \beta\lambda + \beta^2\lambda + \cdots = \frac{\lambda}{1-\beta}$
    total payoff.
 
 Therefore, by definition, the expected optimal total payoff is
 
-$$V(n, x, \lambda) = \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(x+1,n+1,\lambda)\right) + \left(1-\frac{x+1}{n+2}\right)\beta V(x,n+1,\lambda)), \frac{\lambda}{1-\beta}\right\}$$
+$$V(n, x, \lambda) = \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(n+1,x+1,\lambda)\right) + \left(1-\frac{x+1}{n+2}\right)\beta V(n+1,x,\lambda)), \frac{\lambda}{1-\beta}\right\}$$
+
+
+$$\begin{eqnarray}
+V(n, x, \lambda)&=& \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(n+1,x+1,\lambda)\right) + \left(1-\frac{x+1}{n+2}\right)\beta V(n+1,x,\lambda)), \frac{\lambda}{1-\beta}\right\} \nonumber \\
+&=& \max\left\{p + \beta(pV(n+1,x+1,\lambda) + (1-p)V(n+1,x,\lambda)), \frac{\lambda}{1-\beta}\right\} \nonumber \\
+\textrm{where} & & p=\frac{x+1}{n+2} \nonumber
+\end{eqnarray}$$
 
 The definition of Gittins Index is
 
