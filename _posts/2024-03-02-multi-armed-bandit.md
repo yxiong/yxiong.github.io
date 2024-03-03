@@ -225,6 +225,11 @@ gittins_index(0, 0) # --> 0.7028894424438477
 gittins_index(2, 1) # --> 0.6346330642700195
 ```
 
+### Complexity
+
+The complexity of each $V$ function calculation is $O(N^2)$, and number of binary search performed is
+$O(\log(1/\epsilon))$. Therefore the overall complexity is $O(-N^2\log(\epsilon))$.
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
