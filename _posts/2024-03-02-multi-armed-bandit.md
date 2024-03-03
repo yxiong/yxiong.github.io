@@ -68,6 +68,8 @@ $$E_{k-1}=\max(S_k^{(1)},S_k^{(2)})$$
 
 #### $x_i=y_i=0$: another boundary condition
 
+When we the arm is never pulled, $x_i=y_i=0$, the probability above is undefined, and we need some other prior.
+For simplicity, we just assume the probability of each case is 50%.
 
 ## References
 
