@@ -42,7 +42,7 @@ We first try to solve the problem in a brute force approach to build some intuit
 The key insight in our algorithm is we will start from the last round of the game to compute the expected reward for
 each situation, and then work backwards.
 
-#### Last round: the "boundary condition"
+#### Last round: the boundary condition
 
 When all $n$ rounds have been played and we observed the outcome, the "expected" reward is simply:
 
@@ -55,13 +55,18 @@ calculate the expected reward when we pull each arm.
 
 If we pull the first arm, there is a $\frac{x_1}{x_1+y_1}$ chance it pays off, and a $\frac{y_1}{x_1+x_2}$ chance that
 it doesn't. So the expected reward is
+
 $$S_k^{(1)}=\frac{x_1}{x_1+y_1}(1+E_k(x_1+1,y1;x_2,y_2))+\frac{y_1}{x_1+y_1}E_k(x_1,y_1+1;x_2,y_2)$$
 
 Similarly, we can calculate $$S_k^{(2)}$$ as
+
 $$S_k^{(2)}=\frac{x_2}{x_2+y_2}(1+E_k(x_1,y1;x_2+1,y_2))+\frac{y_2}{x_2+y_2}E_k(x_1,y_1;x_2,y_2+1)$$
 
 And then we just need to pull the arm with higher reward:
+
 $$E_{k-1}=\max(S_k^{(1)},S_k^{(2)})$$
+
+#### $x_i=y_i=0$: another boundary condition
 
 
 ## References
