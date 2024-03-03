@@ -174,6 +174,36 @@ V(n,x;\lambda) & \text{otherwise, i.e. } n < N
 \end{cases}
 $$
 
+With this "boundary condition" of $n\geq N$, we can easily calculate $V_N$ backwards with dynamic programing like the
+previous section. Here is a simple piece of code based on memorization:
+
+```python
+class VCalculator:
+  def __init__(self, lambda_, beta, N):
+    self.lambda_ = lambda_
+    self.beta = beta
+    self.N = N
+    self.values = dict()  # (n,x) --> V(n,x)
+
+  def calculate(self, n, x):
+    if (n,x) in self.values:
+      return self.values[(n, x)]
+    value = self._calculate(n, x)
+    self.values[(n, x)] = value
+    return value
+
+  def _calculate(self, n, x):
+    p = (x+1) / (n+2)
+    if n >= self.N:
+      return max(self.lambda_, p) / (1 - self.beta)
+    v1 = p + self.beta * (p * self.calculate(n+1,x+1) + (1-p) * self.calculate(n+1,x))
+    v2 = self.lambda_ / (1 - self.beta)
+    return max(v1, v2)
+
+## TESTING ##
+VCalculator(lambda_=0.5, beta=0.9, N=100).calculate(2, 1) # --> 5.556773453807154
+```
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
