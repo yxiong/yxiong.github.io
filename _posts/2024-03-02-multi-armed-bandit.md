@@ -14,6 +14,9 @@ date: 2024-03-02
 > choices (i.e. arms or actions) when the properties of each choice are only partially known at the time of allocation,
 > and may become better understood as time passes.
 
+This blog focus on a special case of the general problem: each arm follows a Bernoulli process, i.e. it gives a reward
+of either 0 or 1 with a unknown bug fixed probability.
+
 ## Programmatic Solution -- Finite Number of Rounds
 
 We first try to solve the problem in a brute force approach to build some intuitions.
