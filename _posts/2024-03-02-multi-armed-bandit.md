@@ -35,7 +35,7 @@ We first try to solve the problem in a brute force approach to build some intuit
     denoted as $A_k(x_1, y_1; x_2, y_2)\in\{1,2\}$.
   * After making that decision and observe the outcome (updating $x_1, x_2, y_1, y_2$), we have an expected reward 
     _at the end of the game_ given the information when finishing $k$-th round, denoted as 
-    $E_k(x_1, y_1; x_2, y_2)\in\mathbb{R}^{\ge0}$.
+    $E_k(x_1, y_1; x_2, y_2)\in\mathbb{R}_{\ge0}$.
 
 ### Algorithm
 
