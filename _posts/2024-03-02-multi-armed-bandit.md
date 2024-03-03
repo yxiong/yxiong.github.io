@@ -204,17 +204,25 @@ class VCalculator:
 VCalculator(lambda_=0.5, beta=0.9, N=100).calculate(2, 1) # --> 5.556773453807154
 ```
 
-#### Binary Search for $\nu=\sup\left\{ \lambda: V(n,x;\lambda)=\lambda/(1-\beta) \right\}$
-
-$$\nu = \sup \left\{ \lambda: V(n, x; \lambda) = \lambda / (1-\beta) \right\}$$
-
+#### Binary Search for $\nu = \sup \left\{ \lambda: V(n, x; \lambda) = \lambda / (1-\beta) \right\}$
 
 Now that we have a way to approximate $V(n,x;\lambda)$, finding optimal $\lambda$ is a matter of binary search.
 Starting from a lower/upper bound interval $[l,u]$ (e.g. $[0,1]$), we iteratively test the middle point $(l+u)/2$
 and tighten the interval, until it is small enough (for practical matter). Here is the code
 
 ```python
+def gittins_index(n, x, beta=0.9, N=30, epsilon=1e-4):
+  l, u = 0, 1
+  while u - l > epsilon:
+    lambda_ = (l+u) / 2
+    v = VCalculator(lambda_, beta, N).calculate(n, x)
+    if v > lambda_ / (1 - beta): l = lambda_
+    else: u = lambda_
+  return lambda_
 
+## TESTING ##
+gittins_index(0, 0) # --> 0.70294189453125
+gittins_index(2, 1) # --> 0.63458251953125
 ```
 
 ## References
