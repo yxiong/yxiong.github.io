@@ -102,6 +102,16 @@ In addition, there is a geometric discount in the rewards of $\beta$ at each rou
 at the second round needs to multiply by a discount factor $\beta<1$, and that we get at the third round by $\beta^2$,
 etc., regardless of which arm we pull. The $\beta$ value is fixed and known ahead of time, say 0.9 or 0.95.
 
+### Motivation, Definition, and Properties
+
+It can be shown (and rigorously proved, but not here) that
+
+* The optimal solution for one arm bandit is to pull the risky arm a number of times to observe its distribution, and
+  then switch to safe arm if we believe the latter is better (here _better_ includes opportunity cost), or never switch
+  if such criteria is never reached (risky arm is better).
+* Once we switch, we will always stick to the safe arm and never go back to the risky arm.
+* Obviously, the larger safe arm's payoff $\lambda$ is, the more likely we will switch to the safe arm, and the earlier.
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
