@@ -204,6 +204,10 @@ class VCalculator:
 VCalculator(lambda_=0.5, beta=0.9, N=100).calculate(2, 1) # --> 5.556773453807154
 ```
 
+#### Binary Search for $\nu=\sup\{\lambda: V(n,x;\lambda)=\lambda/(1-\beta)\}$
+
+Now that we have a way to approximate 
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
