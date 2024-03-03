@@ -121,13 +121,13 @@ state, or round 0. Based on the information $n, x, \lambda$, our choices for thi
 Again, the larger the $\lambda$ is, the more likely we will go for option 2. The definition of Gittins Index (roughly)
 is the smallest $\lambda$ such that one is indifferent of these two options.
 
-To make this more rigorous, define a value function $V(n, x, \lambda)$ as the expected optimal _total_ payoff of the
-game. In other words, if we play the game indefinitely following the optimal strategy, $V(n, x, \lambda)$ is the
+To make this more rigorous, define a value function $V(n, x; \lambda)$ as the expected optimal _total_ payoff of the
+game. In other words, if we play the game indefinitely following the optimal strategy, $V(n, x; \lambda)$ is the
 expected total payoff. Now, let's look at the two choices:
 
 1. If we keep playing the risky arm 
-   * there is a $\frac{x+1}{n+2}$ chance we get a unit payoff plus a $\beta\cdot V(n+1, x+1, \lambda)$ future payoff;
-   * and a $1-\frac{x+1}{n+2}$ chance of not winning this round, leaving us only a $\beta\cdot V(n+1, x, \lambda)$
+   * there is a $\frac{x+1}{n+2}$ chance we get a unit payoff plus a $\beta\cdot V(n+1, x+1; \lambda)$ future payoff;
+   * and a $1-\frac{x+1}{n+2}$ chance of not winning this round, leaving us only a $\beta\cdot V(n+1, x; \lambda)$
      future payoff;
 2. If we play the safe arm, we will get $\lambda + \beta\lambda + \beta^2\lambda + \cdots = \frac{\lambda}{1-\beta}$
    total payoff.
@@ -135,23 +135,43 @@ expected total payoff. Now, let's look at the two choices:
 Therefore, by definition, the expected optimal total payoff is
 
 $$\begin{eqnarray}
-V(n, x, \lambda)&=& \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(n+1,x+1,\lambda)\right) + \left(1-\frac{x+1}{n+2}\right)\beta V(n+1,x,\lambda)), \frac{\lambda}{1-\beta}\right\} \nonumber \\
-&=& \max\left\{p + \beta(pV(n+1,x+1,\lambda) + (1-p)V(n+1,x,\lambda)), \frac{\lambda}{1-\beta}\right\} \nonumber \\
+V(n, x; \lambda)&=& \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(n+1,x+1;\lambda)\right) + \left(1-\frac{x+1}{n+2}\right)\beta V(n+1,x;\lambda)), \frac{\lambda}{1-\beta}\right\} \nonumber \\
+&=& \max\left\{p + \beta(pV(n+1,x+1;\lambda) + (1-p)V(n+1,x;\lambda)), \frac{\lambda}{1-\beta}\right\} \nonumber \\
 \textrm{where} & & p=\frac{x+1}{n+2} \nonumber
 \end{eqnarray}$$
 
 The definition of Gittins Index is
 
-$$\nu = \sup \left\{ \lambda: V(n, x, \lambda) = \frac{\lambda}{1-\beta} \right\}$$
+$$\nu = \sup \left\{ \lambda: V(n, x; \lambda) = \frac{\lambda}{1-\beta} \right\}$$
 
 * The $\sup$ means supremum, (roughly) the smallest $\lambda$ in the set 
-* The set of $\lambda$ such that $V(n, x, \lambda) = \frac{\lambda}{1-\beta}$ can be read as we choose the safe arm
+* The set of $\lambda$ such that $V(n, x; \lambda) = \frac{\lambda}{1-\beta}$ can be read as we choose the safe arm
   since its payoff is higher (no lower) than the risky arm.
 
 Note that Gittins Index tells us the value of pulling the risky arm at _this_round, captures both the potential
 immediate payoff and its benefit for future rounds. This means it is a also general solution for the multi-arm bandit
 problem: when facing multiple arms, we can calculate the Gittins Index for each arm, and pull the one with the largest
 value.
+
+### Calculation
+
+The calculation of Gittins Index is non-trivial. We will present a numerical calculation based on its definition.
+
+#### Approximate the value function $V(n,x;\lambda)$
+
+The main challenge for calculating $V(n,x;\lambda)$ is that it relies on future values $V(n+1,x+1;\lambda)$ and
+$V(n+1,x;\lambda)$. To resolve this, we make a key assumption that when $n$ is large enough, we will have observed
+enough and get close to know the true value of the risky arm, so the benefit of further exploration become negligible.
+In other words, when $n$ is large enough, $V(n,x;\lambda)$ is really just $p$ (potential immediate payoff) plus
+$\beta$ times itself. With that insight, we can construct an approximation of the value function as
+
+$$
+f(x) = 
+\begin{cases} 
+1 & \text{if } x < 5 \\
+6 & \text{otherwise}
+\end{cases}
+$$
 
 ## References
 
