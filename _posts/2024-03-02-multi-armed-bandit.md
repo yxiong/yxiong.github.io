@@ -134,9 +134,6 @@ expected total payoff. Now, let's look at the two choices:
 
 Therefore, by definition, the expected optimal total payoff is
 
-$$V(n, x, \lambda) = \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(n+1,x+1,\lambda)\right) + \left(1-\frac{x+1}{n+2}\right)\beta V(n+1,x,\lambda)), \frac{\lambda}{1-\beta}\right\}$$
-
-
 $$\begin{eqnarray}
 V(n, x, \lambda)&=& \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(n+1,x+1,\lambda)\right) + \left(1-\frac{x+1}{n+2}\right)\beta V(n+1,x,\lambda)), \frac{\lambda}{1-\beta}\right\} \nonumber \\
 &=& \max\left\{p + \beta(pV(n+1,x+1,\lambda) + (1-p)V(n+1,x,\lambda)), \frac{\lambda}{1-\beta}\right\} \nonumber \\
@@ -150,6 +147,11 @@ $$\nu = \sup \left\{ \lambda: V(n, x, \lambda) = \frac{\lambda}{1-\beta} \right\
 * The $\sup$ means supremum, (roughly) the smallest $\lambda$ in the set 
 * The set of $\lambda$ such that $V(n, x, \lambda) = \frac{\lambda}{1-\beta}$ can be read as we choose the safe arm
   since its payoff is higher (no lower) than the risky arm.
+
+Note that Gittins Index tells us the value of pulling the risky arm at _this_round, captures both the potential
+immediate payoff and its benefit for future rounds. This means it is a also general solution for the multi-arm bandit
+problem: when facing multiple arms, we can calculate the Gittins Index for each arm, and pull the one with the largest
+value.
 
 ## References
 
