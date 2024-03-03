@@ -112,11 +112,19 @@ It can be shown (and rigorously proved, but not here) that
 * Once we switch, we will always stick to the safe arm and never go back to the risky arm.
 * Obviously, the larger safe arm's payoff $\lambda$ is, the more likely we will switch to the safe arm, and the earlier.
 
+Assume we observed the risky arm $n$ times and got $x$ wins, $y=n-x$ losses. For simplicity, we call this the initial
+state, or round 0. Based on the information $n, x, \lambda$, our choices for this round are:
+
+1. Keep playing the risky arm for at least one round
+2. Switch to the safe arm and never look back
+
+Again, the larger the $\lambda$ is, the more likely we will go for option 2.
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
 * <https://en.wikipedia.org/wiki/Gittins_index>
 * J. C. Gittins (1979). Bandit Processes and Dynamic Allocation Indices.
-  https://doi.org/10.1111/j.2517-6161.1979.tb01068.x
+  <https://doi.org/10.1111/j.2517-6161.1979.tb01068.x>
 * James Edwards (2019). Practical Calculation of Gittins Indices for Multi-armed Bandits.
-  https://arxiv.org/pdf/1909.05075.pdf
+  <https://arxiv.org/pdf/1909.05075.pdf>
