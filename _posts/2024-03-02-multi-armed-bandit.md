@@ -166,10 +166,11 @@ In other words, when $n$ is large enough, $V(n,x;\lambda)$ is really just $p$ (p
 $\beta$ times itself. With that insight, we can construct an approximation of the value function as
 
 $$
-f(x) = 
-\begin{cases} 
-1 & \text{if } x < 5 \\
-6 & \text{otherwise}
+V_N(n,x;\lambda) = 
+\begin{cases}
+\frac{\lambda}{1-\beta} & \text{if } n\geq N \textrm{ and } p \leq \lambda \\
+\frac{p}{1-\beta} & \text{if } n\geq N \textrm{ and } p > \lambda \\
+V(n,x;\lambda) & \text{otherwise, i.e. } n < N
 \end{cases}
 $$
 
