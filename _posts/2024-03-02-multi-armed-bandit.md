@@ -132,6 +132,10 @@ expected total payoff. Now, let's look at the two choices:
 2. If we play the safe arm, we will get $\lambda + \beta\lambda + \beta^2\lambda + \cdots = \frac{\lambda}{1-\beta}$
    total payoff.
 
+Therefore, by definition, the expected optimal total payoff is
+
+$$V(n, x, \lambda) = \max\left{\frac{x+1}{n+2}\left(1 + \beta V(x+1,n+1,\lambda)\right) + (1-\frac{x+1}{n+2}\beta V(x,n+1,\lambda)), \frac{\lambda}{1-\beta}\right}$$
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
