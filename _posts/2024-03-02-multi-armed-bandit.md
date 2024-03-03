@@ -134,15 +134,11 @@ expected total payoff. Now, let's look at the two choices:
 
 Therefore, by definition, the expected optimal total payoff is
 
-$$V(n, x, \lambda) = $$
-
-$$\max\left{\frac{x+1}{n+2}\left(1 + \beta V(x+1,n+1,\lambda)\right) + $$
-
-$$(1-\frac{x+1}{n+2}\beta V(x,n+1,\lambda)), \frac{\lambda}{1-\beta}\right}$$
+$$V(n, x, \lambda) = \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(x+1,n+1,\lambda)\right) + (1-\frac{x+1}{n+2}\beta V(x,n+1,\lambda)), \frac{\lambda}{1-\beta}\right\}$$
 
 The definition of Gittins Index is
 
-$$\nu = \sup \{ \lambda: V(n, x, \lambda) = \frac{\lambda}{1-\beta} \}$$
+$$\nu = \sup \left\{ \lambda: V(n, x, \lambda) = \frac{\lambda}{1-\beta} \right\}$$
 
 * The $\sup$ means supremum, (roughly) the smallest $\lambda$ in the set 
 * The set of $\lambda$ such that $V(n, x, \lambda) = \frac{\lambda}{1-\beta}$ can be read as we choose the safe arm
