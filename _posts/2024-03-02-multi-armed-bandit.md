@@ -79,9 +79,9 @@ For simplicity, we just assume the probability of each case is 50%.
 
 So the overall complexity is $O((n!)^4)$ for $m=2$ arms.
 
-Generalizing this to $m$ arms, we need to fill in $O(n^{2m})$ cells at the last round, and $O(k^2m\cdot m)$ for $k$-th
+Generalizing this to $m$ arms, we need to fill in $O(n^{2m})$ cells at the last round, and $O(k^{2m}\cdot m)$ for $k$-th
 round (the additional $m$ is because we need to calculate $m$ different expected reward for each cell). So the general
-complexity is $O((n!)^2m\cdot m^n)$.
+complexity is $O((n!)^{2m}\cdot m^n)$.
 
 ## References
 
