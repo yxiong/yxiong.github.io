@@ -14,7 +14,7 @@ date: 2024-03-02
 > choices (i.e. arms or actions) when the properties of each choice are only partially known at the time of allocation,
 > and may become better understood as time passes.
 
-## Programmatic Solution for Finite Steps
+## Programmatic Solution for Finite Number of Rounds
 
 We first try to solve the problem in a brute force approach to build some intuitions.
 
@@ -56,11 +56,11 @@ calculate the expected reward when we pull each arm.
 If we pull the first arm, there is a $\frac{x_1}{x_1+y_1}$ chance it pays off, and a $\frac{y_1}{x_1+x_2}$ chance that
 it doesn't. So the expected reward is
 
-$$S_k^{(1)}=\frac{x_1}{x_1+y_1}(1+E_k(x_1+1,y1;x_2,y_2))+\frac{y_1}{x_1+y_1}E_k(x_1,y_1+1;x_2,y_2)$$
+$$S_k^{(1)}=\frac{x_1}{x_1+y_1}(1+E_k(x_1+1,y_1;x_2,y_2))+\frac{y_1}{x_1+y_1}E_k(x_1,y_1+1;x_2,y_2)$$
 
 Similarly, we can calculate $S_k^{(2)}$ as
 
-$$S_k^{(2)}=\frac{x_2}{x_2+y_2}(1+E_k(x_1,y1;x_2+1,y_2))+\frac{y_2}{x_2+y_2}E_k(x_1,y_1;x_2,y_2+1)$$
+$$S_k^{(2)}=\frac{x_2}{x_2+y_2}(1+E_k(x_1,y_1;x_2+1,y_2))+\frac{y_2}{x_2+y_2}E_k(x_1,y_1;x_2,y_2+1)$$
 
 And then we just need to pull the arm with higher reward:
 
@@ -83,6 +83,9 @@ Generalizing this to $m$ arms, we need to fill in $O(n^{2m})$ cells at the last 
 round (the additional $m$ is because we need to calculate $m$ different expected reward for each cell). So the general
 complexity is $O((n!)^{2m}\cdot m^n)$.
 
+## Gittins Index for Infinite Number of Rounds with Discounted Rewards
+
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
+* <https://en.wikipedia.org/wiki/Gittins_index>
