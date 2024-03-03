@@ -134,7 +134,7 @@ expected total payoff. Now, let's look at the two choices:
 
 Therefore, by definition, the expected optimal total payoff is
 
-$$V(n, x, \lambda) = \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(x+1,n+1,\lambda)\right) + (1-\frac{x+1}{n+2}\beta V(x,n+1,\lambda)), \frac{\lambda}{1-\beta}\right\}$$
+$$V(n, x, \lambda) = \max\left\{\frac{x+1}{n+2}\left(1 + \beta V(x+1,n+1,\lambda)\right) + \left(1-\frac{x+1}{n+2}\right)\beta V(x,n+1,\lambda)), \frac{\lambda}{1-\beta}\right\}$$
 
 The definition of Gittins Index is
 
