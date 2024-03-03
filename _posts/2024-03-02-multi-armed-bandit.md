@@ -204,7 +204,7 @@ class VCalculator:
 VCalculator(lambda_=0.5, beta=0.9, N=100).calculate(2, 1) # --> 5.556773453807154
 ```
 
-#### Binary Search for $\nu = \sup \left\{ \lambda: V(n, x; \lambda) = \lambda / (1-\beta) \right\}$
+#### Binary Search for $\nu$
 
 Now that we have a way to approximate $V(n,x;\lambda)$, finding optimal $\lambda$ is a matter of binary search.
 Starting from a lower/upper bound interval $[l,u]$ (e.g. $[0,1]$), we iteratively test the middle point $(l+u)/2$
