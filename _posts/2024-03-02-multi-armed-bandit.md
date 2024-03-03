@@ -228,7 +228,8 @@ gittins_index(2, 1) # --> 0.6346330642700195
 ### Complexity
 
 The complexity of each $V$ function calculation is $O(N^2)$, and number of binary search performed is
-$O(\log(1/\epsilon))$. Therefore the overall complexity is $O(-N^2\log(\epsilon))$.
+$O(\log(1/\epsilon))$. Therefore the overall complexity is $O(-N^2\log(\epsilon))$. Note that this complexity
+is essentially based on how accurate we want the result to be.
 
 ## References
 
