@@ -14,7 +14,7 @@ date: 2024-03-02
 > choices (i.e. arms or actions) when the properties of each choice are only partially known at the time of allocation,
 > and may become better understood as time passes.
 
-## Programmatic Solution for Finite Number of Rounds
+## Programmatic Solution -- Finite Number of Rounds
 
 We first try to solve the problem in a brute force approach to build some intuitions.
 
@@ -83,9 +83,13 @@ Generalizing this to $m$ arms, we need to fill in $O(n^{2m})$ cells at the last 
 round (the additional $m$ is because we need to calculate $m$ different expected reward for each cell). So the general
 complexity is $O((n!)^{2m}\cdot m^n)$.
 
-## Gittins Index for Infinite Number of Rounds with Discounted Rewards
+## Gittins Index -- Infinite Number of Rounds with Discounted Rewards
 
 ## References
 
 * <https://en.wikipedia.org/wiki/Multi-armed_bandit>
 * <https://en.wikipedia.org/wiki/Gittins_index>
+* J. C. Gittins (1979). Bandit Processes and Dynamic Allocation Indices.
+  https://doi.org/10.1111/j.2517-6161.1979.tb01068.x
+* James Edwards (2019). Practical Calculation of Gittins Indices for Multi-armed Bandits.
+  https://arxiv.org/pdf/1909.05075.pdf
