@@ -6,9 +6,9 @@ date: 2024-03-02
 * TOC
 {:toc}
 
-## General Problem Statement
+## Problem Statement
 
-(From Wikipedia)
+(From Wikipedia) The general multi-armed bandit can be formulated as
 
 > The multi-armed bandit problem is a problem in which a decision maker iteratively selects one of multiple fixed
 > choices (i.e. arms or actions) when the properties of each choice are only partially known at the time of allocation,
