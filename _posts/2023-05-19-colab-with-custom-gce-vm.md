@@ -1,6 +1,8 @@
 ---
 title: Using Colab with Custom GCE VM
 date: 2023-05-19
+tags:
+- colab
 ---
 
 ## Instructions

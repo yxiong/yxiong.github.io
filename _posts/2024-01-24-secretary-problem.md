@@ -1,6 +1,8 @@
 ---
 title: Secretary Problem
 date: 2024-01-24
+tags:
+- algorithm
 ---
 
 * TOC

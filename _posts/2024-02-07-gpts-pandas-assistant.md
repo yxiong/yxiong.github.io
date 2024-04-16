@@ -1,6 +1,9 @@
 ---
 title: GPTs -- Pandas Assistant
 date: 2024-02-07
+tags:
+- gpt
+- pandas
 ---
 
 * TOC

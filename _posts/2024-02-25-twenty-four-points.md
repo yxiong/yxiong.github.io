@@ -1,6 +1,9 @@
 ---
 title: 24 Points
 date: 2024-02-25
+tags:
+- algorithm
+- code
 ---
 
 ## Problem Statement

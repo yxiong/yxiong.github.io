@@ -1,6 +1,8 @@
 ---
 title: Managing Secrets in Colab
 date: 2023-06-01
+tags:
+- colab
 ---
 
 To properly manage (hide) a secret, e.g. an API key, in colab, one can use

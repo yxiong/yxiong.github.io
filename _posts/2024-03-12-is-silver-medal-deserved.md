@@ -1,6 +1,8 @@
 ---
 title: Is Silver Medal Deserved in Single-Elimination Tournament?
 date: 2024-03-12
+tags:
+- algorithm
 ---
 
 * TOC

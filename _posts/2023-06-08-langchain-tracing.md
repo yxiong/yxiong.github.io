@@ -1,6 +1,8 @@
 ---
 title: Langchain Tracing
 date: 2023-06-08
+tags:
+- langchain
 ---
 
 The [langchain tracing](https://python.langchain.com/en/latest/additional_resources/tracing.html) is a very useful tool for debugging.

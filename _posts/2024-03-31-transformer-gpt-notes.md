@@ -1,6 +1,10 @@
 ---
 title: Transformer / GPT Notes
 date: 2024-03-31
+tags:
+- ai
+- gpt
+- transformer
 ---
 
 We consider a decoder-only architecture for now, and refer to it as "the decoder" (we could also call it the transformer
