@@ -46,6 +46,10 @@ example : p ↔ q :=
   Iff.intro
     (fun hp : p => sorry) -- proof of q given p
     (fun hq : q => sorry) -- proof of p given q
+
+fun h : p ↔ q =>
+  have hl : p → q := h.mp
+  have hr : q → p := h.mpr
 ```
 
 Negation `¬p` is defined as `p → False`. We prove `¬p` by deriving a contradiction from `p`.
@@ -78,4 +82,39 @@ open Classical
 Or.elim (em p)
   (fun hp : p => sorry)
   (fun hnp : ¬p => sorry)
+
+example (h : ¬p) : q :=
+  byContradiction
+    (fun h1 : ¬q =>
+      have h2 : p := ... -- given ¬q, prove p
+      show False from h h2)
+```
+
+## Chapter 4: Quantifiers and Equality
+
+The universal quantifier `∀`
+
+```lean
+-- introduction --
+example : ∀ x : α, p x :=
+  fun x : α => -- prove (p x) here
+
+-- elimination --
+fun h : ∀ x : α, p x => -- Given (y : α), we can now use (h y) as a proof of (p y)
+```
+
+The existential quantifier `∃`
+
+```lean
+-- introduction --
+example : ∃ x : α, p x := Exists.intro w hw  -- w is a particular value in α, hw is a proof of (p w)
+example : ∃ x, p x := ⟨w, hw⟩
+
+-- elimination --
+example (h : ∃ x : α, p x) : q :=
+  match h with
+  | ⟨w, (hw : p w)⟩ => q  -- w is a particular value in α, hw is of type (p w)
+
+example : (∃ x : α, p x) → q :=
+  fun ⟨w, (hw : p w)⟩ => q
 ```
