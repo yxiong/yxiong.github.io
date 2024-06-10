@@ -12,31 +12,58 @@ This post contains my notes of the [Theorem Proving in Lean 4](https://leanprove
 Implication.
 
 ```lean
+-- term-style --
 example : p → q :=
   fun h : p => sorry -- proof of q given h
+
+-- tactic --
+example : p → q := by
+  intro hp  -- hp is of type `p`
+  q         -- proof of q goes here
 ```
 
 Conjunction, a.k.a. and.
 
 ```lean
+-- elimination --
 fun h : p ∧ q =>
   have hp := h.left
   have hq := h.right
   sorry  -- rest of proof using hp and hq
 
+-- introduction --
 ⟨hp, hq⟩ : p ∧ q  -- as proof of p ∧ q
+
+-- tactic introduction to prove `p ∧ q` --
+apply And.intro
+case left =>  -- proof of left
+case right => -- proof of right
 ```
 
 Disjunction, a.k.a. or.
 
 ```lean
+-- elimination --
 fun h : p ∨ q =>
   h.elim
     (fun hp => sorry)  -- proof using hp
     (fun hq => sorry)  -- proof using hq
 
+-- introduction --
 Or.inl hp : p ∨ q   -- prove (p ∨ q) using hp
 Or.inr hr : p ∨ q   -- prove (p ∨ q) using hq
+
+-- tactic elimination to use `p ∨ q` --
+example : p ∨ q → r := by
+  intro h
+  cases h with
+  | Or.inl hp => -- prove r using (hp: p)
+  | Or.inr hq => -- prove r using (hq: q)
+
+example : p ∨ q → r := by
+  intro
+  | Or.inl hp => -- prove r using (hp: p)
+  | Or.inr hq => -- prove r using (hq: q)
 ```
 
 Equivalence, a.k.a. iff.
@@ -117,4 +144,16 @@ example (h : ∃ x : α, p x) : q :=
 
 example : (∃ x : α, p x) → q :=
   fun ⟨w, (hw : p w)⟩ => q
+```
+
+## Chapter 5: Tactics
+
+`intro` moves things to the left of `⊢` (makes it an assumption),
+while `revert` moves them to the right of `⊢` (removes an assumption).
+
+```lean
+example (x : Nat) : x = x := by -- [Goal] (x : Nat) ⊢ x = x
+  revert x                      -- [Goal] ⊢ ∀ (x : Nat), x = x
+  intro y                       -- [Goal] (y : Nat) ⊢ y = y
+  rfl
 ```
