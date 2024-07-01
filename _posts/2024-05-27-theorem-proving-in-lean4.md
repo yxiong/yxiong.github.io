@@ -1,6 +1,7 @@
 ---
 title: Theorem Proving in Lean 4
 date: 2024-05-27
+modified_date: 2024-06-11
 tags:
 - lean
 ---
