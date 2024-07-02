@@ -1,7 +1,7 @@
 ---
 title: Theorem Proving in Lean 4
 date: 2024-05-27
-modified_date: 2024-06-11
+modified_date: 2024-07-02
 tags:
 - lean
 ---
@@ -10,7 +10,7 @@ This post contains my notes of the [Theorem Proving in Lean 4](https://leanprove
 
 ## Chapter 3: Propositions and Proofs
 
-Implication.
+### Implication
 
 ```lean
 -- term-style --
@@ -23,7 +23,7 @@ example : p → q := by
   q         -- proof of q goes here
 ```
 
-Conjunction, a.k.a. and.
+### Conjunction, a.k.a. `and`
 
 ```lean
 -- elimination --
@@ -35,13 +35,16 @@ fun h : p ∧ q =>
 -- introduction --
 ⟨hp, hq⟩ : p ∧ q  -- as proof of p ∧ q
 
--- tactic introduction to prove `p ∧ q` --
+-- tactic to use `p ∧ q` --
+intro ⟨hp, hq⟩
+
+-- tactic to prove `p ∧ q` --
 apply And.intro
-case left =>  -- proof of left
-case right => -- proof of right
+. ???  -- to prove `p`
+. ???  -- to prove `q`
 ```
 
-Disjunction, a.k.a. or.
+### Disjunction, a.k.a. `or`
 
 ```lean
 -- elimination --
@@ -56,18 +59,21 @@ Or.inr hr : p ∨ q   -- prove (p ∨ q) using hq
 
 -- tactic elimination to use `p ∨ q` --
 example : p ∨ q → r := by
-  intro h
-  cases h with
-  | Or.inl hp => -- prove r using (hp: p)
-  | Or.inr hq => -- prove r using (hq: q)
-
-example : p ∨ q → r := by
   intro
-  | Or.inl hp => -- prove r using (hp: p)
-  | Or.inr hq => -- prove r using (hq: q)
+  | Or.inl hp => ??? -- prove r using (hp: p)
+  | Or.inr hq => ??? -- prove r using (hq: q)
+
+-- tactic elimination to use `hpq : p ∨ q` --
+match hpq with
+| Or.inl hp => ??? -- prove using (hp: p)
+| Or.inr hq => ??? -- prove using (hq: q)
+
+-- tactic elimination to prove `p ∨ q` --
+apply Or.inl h
+apply Or.inr h
 ```
 
-Equivalence, a.k.a. iff.
+### Equivalence, a.k.a. `iff`
 
 ```lean
 example : p ↔ q :=
@@ -78,7 +84,14 @@ example : p ↔ q :=
 fun h : p ↔ q =>
   have hl : p → q := h.mp
   have hr : q → p := h.mpr
+
+-- tactic --
+apply Iff.intro
+. ??? -- proof of p → q
+. ??? -- proof of q → p
 ```
+
+### Negation, a.k.a. `not`
 
 Negation `¬p` is defined as `p → False`. We prove `¬p` by deriving a contradiction from `p`.
 
@@ -95,14 +108,14 @@ example (hf : False) : p := False.elim hf
 example (hp : p) (hnp : ¬p) : q := absurd hp hnp
 ```
 
-Auxiliary subgoals
+### Auxiliary subgoals
 
 ```lean
 suffices hp : p from sorry -- Proof of original proposition assuming p is true
 show p from sorry          -- Proof of p
 ```
 
-Classical logic: excluded middle
+### Classical logic: excluded middle
 
 ```lean
 open Classical
@@ -157,4 +170,11 @@ example (x : Nat) : x = x := by -- [Goal] (x : Nat) ⊢ x = x
   revert x                      -- [Goal] ⊢ ∀ (x : Nat), x = x
   intro y                       -- [Goal] (y : Nat) ⊢ y = y
   rfl
+```
+
+To use `have` in tactic mode:
+
+```lean
+have hp : p := by ??? -- tactic proof of `p`
+??????  -- remaining of the proof using `hp : p`
 ```
