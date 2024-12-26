@@ -7,11 +7,11 @@ tags:
 
 ## Instructions
 
-Following the instructions in https://research.google.com/colaboratory/marketplace.html. Here are a few detailed steps and notes:
+Following the instructions in <https://research.google.com/colaboratory/marketplace.html>. Here are a few detailed steps and notes:
 
 0. Set up GCP account, project, billing, etc.
 1. Launch a pre-configured VM from the marketplace image
-   https://console.cloud.google.com/marketplace/product/colab-marketplace-image-public/colab
+   <https://console.cloud.google.com/marketplace/product/colab-marketplace-image-public/colab>
    * Remember to select the right project
    * Deployment name: e.g. `colab-server-gpu`
    * Zone: need to find an availability zone to have enough resource. I currently do it through trial and error. The one I found this time was `us-west4-a`.
