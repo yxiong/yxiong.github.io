@@ -17,7 +17,7 @@ Following the instructions in <https://research.google.com/colaboratory/marketpl
    * Zone: need to find an availability zone to have enough resource. I currently do it through trial and error. The one I found this time was `us-west4-a`.
    * Machine type: I used `n1-highmem-8`
    * GPUs: I chose `NVIDIA T4` and number of GPUs is 1
-2. Go to https://colab.research.google.com/ and "connect with a custom GCE VM".
+2. Go to <https://colab.research.google.com/> and "connect with a custom GCE VM".
    * Fill in `project`, `zone` and `instance`
    * Note that `instance` has a `-vm` suffix
 3. Verify that we can ssh into the VM:
@@ -37,7 +37,7 @@ Following the instructions in <https://research.google.com/colaboratory/marketpl
 
 ### Known Issues
 
-* `google.colab.auth` is not supported, see https://github.com/googlecolab/colabtools/issues/2533
+* `google.colab.auth` is not supported, see <https://github.com/googlecolab/colabtools/issues/2533>
   * This means we cannot easily access Google Drive or Google Cloud Storage.
   * __[Workaround for GCS]__: Use a key file
     1. Console > IAM & Admin > Service Accounts: CREATE SERVICE ACCOUNT
